@@ -1,17 +1,36 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seen = new Set();
+
+  for (let i = 0; i < array.length; i++) {
+    const difference = target - array[i];
+    if (seen.has(difference)) {
+      return true;
+    }
+    seen.add(array[i]);
+  }
+  
+  return false;
 }
+
 
 /* 
   Write the Big O time complexity of your function here
 */
 
 /* 
-  Add your pseudocode here
+  function hasTargetSum(array, target)
+    seen = empty set
+    for each number num in array
+        difference = target - num
+        if difference is in seen
+            return true
+        add num to seen
+    return false
+
 */
 
 /*
-  Add written explanation of your solution here
+  The time complexity of the hasTargetSum function is O(n), where n is the length of the input array. This is because the function performs a single pass through the input array, and each operation inside the loop (such as adding or checking for elements in the set) has a constant time complexity.
 */
 
 // You can run `node index.js` to view these console logs
